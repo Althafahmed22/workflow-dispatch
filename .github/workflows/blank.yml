@@ -4,7 +4,7 @@ name: work-flow
 
 # Controls when the workflow will run
 on:
-   workflow_dispatch:
+  workflow_dispatch:
     inputs:
       name:
         description: 'Person to greet'
@@ -13,10 +13,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains a single job called "greet"
   greet:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-     -name : send greeting
-      run: echo " hello ${{githb.event.input.name}}"
-  
+      - name: Send Greeting
+        run: echo "Hello ${{ github.event.inputs.name }}"
+
